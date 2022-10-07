@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from restauranteapp.forms import MesaForms
+from .models import Mesa
 
 
 # Create your views here.
@@ -15,3 +16,7 @@ def salvar_mesa(request):
         form=MesaForms()
     return render(request, 'restaurante/salvarmesa.html', {'form':form})
 
+
+def mesas(request):
+    mesas = Mesa.objects.all()
+    return render(request,"restaurante/index.html",{'mesas':mesas})
