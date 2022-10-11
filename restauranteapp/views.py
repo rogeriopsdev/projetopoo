@@ -19,4 +19,4 @@ def salvar_mesa(request):
 
 def mesas(request):
     mesas = Mesa.objects.all()
-    return render(request,"restaurante/index.html",{'mesas':mesas})
+    return render(request,"restaurante/mostrar_mesa.html",{'mesas':mesas})
