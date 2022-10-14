@@ -18,13 +18,14 @@ from django.urls import path, re_path
 from django.views.static import serve
 from django.conf import settings
 from django.conf.urls.static import static
-from restauranteapp.views import index, salvar_mesa,mesas
+from restauranteapp.views import index, salvar_mesa,mesas,editar_mesa
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', index,name='index'),
     path('salvar_mesa/', salvar_mesa,name='salvar_mesa'),
     path('mesas/', mesas,name='mesas'),
+    path('editar_mesa/<int:id>', editar_mesa,name='editar_mesa'),
     re_path(r'^img/(?P<path>.*)$',serve,{'document_root':settings.MEDIA_ROOT}),
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

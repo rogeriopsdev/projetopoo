@@ -4,19 +4,25 @@
 <table class="table">
 <thead>
 <tr>
+    <th>Foto</th>
     <th>Mesa</th>
     <th>Capacidade</th>
     <th>Status</th>
-    <th>Foto</th>
+    <th>Editar</th>
+    <th>Excluir</th>
+
 </tr>
 </thead>
 <tbody>
 {% for mesa in mesas %}
 <tr>
+    <td><img src="{{ mesa.foto_url }}" alt=""></td>
     <td>{{ mesa.nome }}</td>
     <td>{{ mesa.capacidade }}</td>
     <td>{{ mesa.status }}</td>
-    <td><img src="{{ mesa.foto_url }}" alt=""></td>
+    <td><a href="{% url 'editar_mesa' mesa.id %}" class="btn btn-warning">Editar</a></td>
+    <td><a href="" class="btn btn-danger">Excluir</a></td>
+
 </tr>
 {% endfor %}
 </tbody>
