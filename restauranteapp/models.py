@@ -1,5 +1,5 @@
 from django.db import models
-import PIL
+from PIL import Image
 
 
 # Create your models here.
@@ -15,3 +15,15 @@ class Mesa(models.Model):
             return self.foto.url
         else:
             print('sem foto')
+
+
+
+
+    def save(self):
+        super().save()
+        im = Image.open(self.foto.path)
+        novo_tamanho =(200,200)
+        im.thumbnail(novo_tamanho)
+        im.save(self.foto.path)
+
+
