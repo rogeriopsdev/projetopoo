@@ -5,8 +5,8 @@ from .models import Mesa
 
 # Create your views here.
 def index(request):
-    form=MesaForms()
-    return render(request, 'restaurante/index.html',{'form':form})
+    mesas = Mesa.objects.all()
+    return render(request, 'restaurante/index.html',{'mesas':mesas})
 
 def salvar_mesa(request):
     form =MesaForms(request.POST)
@@ -37,3 +37,4 @@ def editar_mesa(request,id):
 def mesas(request):
     mesas = Mesa.objects.all()
     return render(request,"restaurante/mostrar_mesa.html",{'mesas':mesas})
+
