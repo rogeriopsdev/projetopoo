@@ -6,7 +6,8 @@
 
             <div class="row">
                 {% for mesa in mesas %}
-                <div class="card col-3 mt-5 ms-5">
+                <div class="card col-3 mt-5 ms-5 mb-2 text-center">
+                    <img src="{{mesa.foto_url }}" alt="" class="mt-1">
                     <h6 class="card-header">{{ mesa.nome }}</h6>
                     <div class="card-body">{{ mesa.status }}</div>
 
