@@ -4,6 +4,10 @@ from .models import Mesa
 
 
 # Create your views here.
+def home(request):
+    return render(request,'restaurante/home.html')
+
+
 def index(request):
     mesas = Mesa.objects.all()
     return render(request, 'restaurante/index.html',{'mesas':mesas})
@@ -37,4 +41,12 @@ def editar_mesa(request,id):
 def mesas(request):
     mesas = Mesa.objects.all()
     return render(request,"restaurante/mostrar_mesa.html",{'mesas':mesas})
+
+
+def deletar(request,id):
+    mesa = get_object_or_404(Mesa, pk=id)
+    if request.method=="POST":
+        mesa.delete()
+        return redirect('mesas')
+    return render(request,'restaurante/deletar.html',{'mesa':mesa} )
 

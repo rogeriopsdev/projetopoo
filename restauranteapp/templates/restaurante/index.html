@@ -2,22 +2,40 @@
 
 {% block content %}
     <div class="row">
-        <div class="bg-danger col-6">
+        <div class="col-6" style="background: rgb(0, 4, 17);">
 
             <div class="row">
                 {% for mesa in mesas %}
-                <div class="card col-3 mt-5 ms-5 mb-2 text-center">
-                    <img src="{{mesa.foto_url }}" alt="" class="mt-1">
-                    <h6 class="card-header">{{ mesa.nome }}</h6>
-                    <div class="card-body">{{ mesa.status }}</div>
+                    {% if mesa.status == 'Ocupado' %}
+                        <div class="card col-3 mt-5 ms-5 mb-2 text-center  bg-danger">
+                            <img src="{{ mesa.foto_url }}" alt="" class="mt-1 img-thumbnail" >
+                            <h6 class="card-header">{{ mesa.nome }}</h6>
+                            <div class="card-body">{{ mesa.status }}</div>
 
-                </div>
+                        </div>
+                    {% elif mesa.status == 'Reservado' %}
+                        <div class="card col-3 mt-5 ms-5 mb-2 text-center  bg-warning">
+                            <img src="{{ mesa.foto_url }}" alt="" class="mt-1 img-thumbnail">
+                            <h6 class="card-header">{{ mesa.nome }}</h6>
+                            <div class="card-body">{{ mesa.status }}</div>
+
+                        </div>
+
+                    {% else %}
+                        <div class="card col-3 mt-5 ms-5 mb-2 text-center bg-primary ">
+                            <img src="{{ mesa.foto_url }}" alt="" class="mt-1 img-thumbnail">
+                            <h6 class="card-header">{{ mesa.nome }}</h6>
+                            <div class="card-body">{{ mesa.status }}</div>
+
+                        </div>
+
+                    {% endif %}
                 {% endfor %}
             </div>
         </div>
         <div class="bg-secondary col-6">
             <figure class="text-center mt-5">
-                <img src="/static/img/logo.jpg" class="img-thumbnail" alt="" >
+                <img src="/static/img/logo.jpg" class="img-thumbnail" alt="">
                 <figcaption>
                     <h1>Restaurante da Dona Florinda</h1>
                 </figcaption>

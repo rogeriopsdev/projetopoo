@@ -1,0 +1,15 @@
+{% extends "restaurante/base.html" %}
+
+{% block content %}
+  <h5>
+Deseja deletar ?
+      {{ mesa.nome }}
+  </h5>sp
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Deletar" class="btn btn-danger">
+
+    </form>
+    <a href="{% url 'mesas' %}" class="btn btn-dark">Voltar</a>
+
+{% endblock content %}

@@ -22,7 +22,7 @@
     <td>{{ mesa.capacidade }}</td>
     <td>{{ mesa.status }}</td>
     <td><a href="{% url 'editar_mesa' mesa.id %}" class="btn btn-warning">Editar</a></td>
-    <td><a href="" class="btn btn-danger">Excluir</a></td>
+    <td><a href="{% url 'deletar' mesa.id %}" class="btn btn-danger">Deletar</a></td>
 
 </tr>
 {% endfor %}
